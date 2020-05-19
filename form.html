@@ -1,0 +1,118 @@
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="locales/bootstrap-datepicker.pl.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>‌
+<script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+
+<style>
+    #Nazrod{
+        padding-bottom: 30px;
+    }
+</style>
+<script>
+    $('#dataur .input-group.date').datepicker({
+        startView: 2,
+        maxViewMode: 2,
+        clearBtn: true,
+        language: "pl",
+        daysOfWeekHighlighted: "0,6"
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#validationCustom05").change(function () {
+            if ($(this).val() == "K") {
+                $("#Nazrod").show();
+            } else {
+                $("#Nazrod").hide();
+            }
+        });
+        $("#Nazrod").hide();
+    });
+</script>
+
+
+<div class="row mt-5">
+    <div class="col-md-8 mx-auto">
+        <h2 class="h2-responsive dark-text text-uppercase mb-0 mt-5 pt-md-5 pt-5 wow fadeInDown"
+            data-wow-delay="0.3s"><strong>Formularz nr1</strong></h2>
+        <form action="" method="post" class="mt-5">
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label>Imię</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="Imie"
+                           required>
+
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label>Nazwisko</label>
+                    <input type="text" class="form-control" id="validationCustom02" placeholder="Nazwisko"
+                           required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label>e-mail</label>
+                    <div class="input-group">
+                        <input type="email" class="form-control" id="validationCustomUsername" placeholder="email"
+                               required>
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mx-auto">
+                    <label>Hasło</label>
+                    <input class="form-control" type="password" id="validationCustom06" data-toggle="password" placeholder="hasło" required>
+                </div>
+            </div>
+            <div class="form-row dataur">
+                <div class="col-md-6 mb-3 mx-auto" id="dataur">
+                    <label>Data urodzenia</label>
+                    <div class="input-group date">
+                        <input type="text" class="form-control" placeholder="data urodzenia" id="validationCustom04"
+                               required><span
+                            class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3 mx-auto">
+                    <label>Płeć</label>
+                    <select name="sex" id="validationCustom05" class="form-control" required>
+                        <option></option>
+                        <option value="M">Mężczyzna</option>
+                        <option value="K">Kobieta</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row" id="Nazrod">
+                <div class="col-md-8 mx-auto">
+                    <input type="text" class="form-control" id="validationCustom03" placeholder="Nazwisko rodowe"
+                           required>
+                </div>
+            </div>
+            <div class="custom-file" id="plik">
+                <input type="file" class="custom-file-input" id="validatedCustomFile">
+                <label class="custom-file-label" for="validatedCustomFile">Prześlij swoje zdjęcie...</label>
+                <div class="invalid-feedback">Example invalid custom file feedback</div>
+            </div>
+            <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+                <label class="custom-control-label" for="customControlValidation1">Akceptuję warunki</label>
+            </div>
+            <input type="submit" class="btn btn-dark" id="btnSubmit"/>
+            <p><small>Sprawdzanie za pomocą pluginu jquery-validate</small></p>
+        </form>
+        <script>
+            jQuery("form").submit(function (e) {
+                e.preventDefault();
+                //or
+                //return false;
+            });
+        </script>
+
+
+    </div>
+
+</div>
